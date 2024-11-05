@@ -31,26 +31,21 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- select plugins to install
-local plugins = {
-  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-  {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
-    dependencies = { 'nvim-lua/plenary.nvim' }
-  },
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-}
 -- select opts 
-local opts = {
-  
-}
+local opts = { }
 
 -- setup lazy 
-require("lazy").setup(plugins, opts)
+require("lazy").setup("plugins")
 -- setup telescop
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>pf", builtin.find_files, {} )
 vim.keymap.set("n", "<leader>lg", builtin.live_grep, {} )
+vim.keymap.set("n", "<leader>b", ":Telescope buffers<CR>")
+
+vim.keymap.set("n", "<leader>n", ":Neotree filesystem reveal right<CR>")
+
+vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
 -- setup catppuccin 
 require("catppuccin").setup()
 -- setup treesitter 
