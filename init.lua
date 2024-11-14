@@ -6,7 +6,15 @@ set tabstop=2
 set softtabstop=0
 set shiftwidth=0
 ]]
+-- search settings
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
 
+vim.opt.termguicolors = true
+-- yanking to system clipboard
+vim.keymap.set("n", "<leader>y", "\"+y")
+vim.keymap.set("v", "<leader>y", "\"+y")
+vim.keymap.set("n", "<leader>Y", "\"+yy")
 -- set relative lines
 vim.cmd("set relativenumber")
 -- disable line wrap
@@ -31,9 +39,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- select opts 
--- local opts = { }
-
 -- setup lazy 
 require("lazy").setup("plugins")
 -- setup telescop
@@ -41,12 +46,12 @@ local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>pf", builtin.find_files, {} )
 vim.keymap.set("n", "<leader>lg", builtin.live_grep, {} )
 
-vim.keymap.set("n", "<leader>pt", ":Neotree filesystem show right<CR>")
+vim.keymap.set("n", "<leader>pt", ":Neotree filesystem toggle right dir=.<CR>")
 
 vim.keymap.set("n", "<leader>bf", ":Telescope buffers<CR>")
-vim.keymap.set("n", "<leader>bq", ":bdelete<CR>")
 vim.keymap.set("n", "<Tab>", ":bnext<CR>")
 vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
+
 -- setup catppuccin 
 require("catppuccin").setup()
 -- setup treesitter 
@@ -65,14 +70,23 @@ vim.cmd("nmap <leader>wh <C-w>h")
 vim.cmd("nmap <leader>wj <C-w>j")
 vim.cmd("nmap <leader>wk <C-w>k")
 vim.cmd("nmap <leader>wl <C-w>l")
--- keymap to quit
-vim.keymap.set("n", "<leader>qq", ":qa<CR>")
-vim.keymap.set("n", "<leader>qw", ":wqa<CR>")
-
+-- keymaps for floaterm
+vim.keymap.set("n", "<leader>t", ":FloatermNew --width=0.8 --height=0.8<CR>")
 -- set color scheme
-vim.cmd.colorscheme "catppuccin-mocha"
--- open neotree
-vim.cmd("Neotree filesystem reveal right");
+vim.cmd.colorscheme("everforest")
+-- open oil
+vim.keymap.set("n", "<leader>e", ":Oil<CR>")
+-- fix indent
+vim.keymap.set("n", "<leader>=", "gg=G")
+-- exit insert quicker
+vim.keymap.set("i", "<C-c>", "<Esc>")
+-- delete buffer shortcut
+vim.keymap.set("n", "<leader>bd", ":bdelete<CR>")
+-- move line shortcut
+vim.keymap.set("n", "<A-j>", ":m +1<CR>")
+vim.keymap.set("n", "<A-k>", ":m -2<CR>")
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 
 
 
@@ -82,7 +96,6 @@ vim.cmd("Neotree filesystem reveal right");
 
 
 
- 
 
 
 
