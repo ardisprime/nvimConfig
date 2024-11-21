@@ -82,15 +82,18 @@ vim.keymap.set("n", "<leader>=", "gg=G")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 -- delete buffer shortcut
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>")
+-- move character shortcut
+vim.keymap.set("n", "<S-h>", "dlhP")
+vim.keymap.set("n", "<S-l>", "dlp")
+vim.keymap.set("v", "<S-h>", "dhP`[v`]")
+vim.keymap.set("v", "<S-l>", "dp`[v`]")
 -- move line shortcut
-vim.keymap.set("n", "<A-j>", ":m +1<CR>")
-vim.keymap.set("n", "<A-k>", ":m -2<CR>")
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
--- remove shortcuts
+vim.keymap.set("n", "<S-j>", ":m +1<CR>")
+vim.keymap.set("n", "<S-k>", ":m -2<CR>")
+vim.keymap.set("v", "<S-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<S-k>", ":m '<-2<CR>gv=gv")
+-- remove windows newlines
 vim.keymap.set("n", "<leader>rm", ":%s/\r$<CR>")
-
-
 
 
 
