@@ -82,6 +82,8 @@ vim.keymap.set("n", "<leader>=", "gg=G")
 vim.keymap.set("i", "<C-c>", "<Esc>")
 -- delete buffer shortcut
 vim.keymap.set("n", "<leader>bd", ":bdelete<CR>")
+-- select changed text shortcut
+vim.keymap.set("n", "<leader>s", "`[v`]")
 -- move character shortcut
 vim.keymap.set("n", "<S-h>", "dlhP")
 vim.keymap.set("n", "<S-l>", "dlp")
@@ -94,6 +96,8 @@ vim.keymap.set("v", "<S-j>", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "<S-k>", ":m '<-2<CR>gv=gv")
 -- remove windows newlines
 vim.keymap.set("n", "<leader>rm", ":%s/\r$<CR>")
+-- duplicate line
+vim.keymap.set("n", "<S-d>", "yyp")
 
 
 
