@@ -2,17 +2,9 @@ return {
   {
     "williamboman/mason.nvim",
     config = function()
-      require("mason").setup()
-    end
-  },
-  {
-    "williamboman/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "lua_ls",
-          "clangd",
-          "jsonls",
+      require("mason").setup({
+        registries = {
+          "github:mason-org/mason-registry@2024-12-02-awful-nerve"
         }
       })
     end
