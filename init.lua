@@ -98,8 +98,8 @@ vim.keymap.set("v", "<S-k>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "<leader>rm", ":%s/\r$<CR>")
 -- duplicate line
 vim.keymap.set("n", "<S-d>", "yyp")
-
-
+-- set python host prog
+vim.g.python3_host_prog = "/usr/sbin/python3"
 
 
 
