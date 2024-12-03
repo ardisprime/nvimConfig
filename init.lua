@@ -100,6 +100,10 @@ vim.keymap.set("n", "<leader>rm", ":%s/\r$<CR>")
 vim.keymap.set("n", "<S-d>", "yyp")
 -- set python host prog
 vim.g.python3_host_prog = "/usr/sbin/python3"
+-- shortcut for line wrap 
+vim.cmd("set linebreak")
+vim.keymap.set("n", "<leader>lw", ":set wrap!<CR>")
+
 
 
 
