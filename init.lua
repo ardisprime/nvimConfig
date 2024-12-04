@@ -38,22 +38,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 vim.opt.rtp:prepend(lazypath)
-
--- setup lazy 
+-- setup lazy with plugins folder 
 require("lazy").setup("plugins")
+
 -- setup telescop
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>pf", builtin.find_files, {} )
 vim.keymap.set("n", "<leader>lg", builtin.live_grep, {} )
 
-vim.keymap.set("n", "<leader>pt", ":Neotree filesystem toggle right dir=.<CR>")
-
-vim.keymap.set("n", "<leader>bf", ":Telescope buffers<CR>")
-vim.keymap.set("n", "<Tab>", ":bnext<CR>")
-vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
-
--- setup catppuccin 
-require("catppuccin").setup()
 -- setup treesitter 
 local config = require("nvim-treesitter.configs")
 config.setup({
@@ -73,9 +65,9 @@ vim.cmd("nmap <leader>wl <C-w>l")
 -- keymaps for floaterm
 vim.keymap.set("n", "<leader>t", ":FloatermNew --width=0.8 --height=0.8<CR>")
 -- set color scheme
-vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("nightfly")
 -- open oil
-vim.keymap.set("n", "<leader>e", ":Oil<CR>")
+vim.keymap.set("n", "<leader>o", ":Oil<CR>")
 -- fix indent
 vim.keymap.set("n", "<leader>=", "gg=G")
 -- exit insert quicker
@@ -103,6 +95,9 @@ vim.g.python3_host_prog = "/usr/sbin/python3"
 -- shortcut for line wrap 
 vim.cmd("set linebreak")
 vim.keymap.set("n", "<leader>lw", ":set wrap!<CR>")
+-- shortcut for moving to end and beginning of line
+vim.keymap.set("n", "me", "$")
+vim.keymap.set("n", "ma", "0")
 
 
 
