@@ -67,7 +67,7 @@ vim.keymap.set("n", "<leader>t", ":FloatermNew --width=0.8 --height=0.8<CR>")
 -- set color scheme
 vim.cmd.colorscheme("nightfly")
 -- fix indent
-vim.keymap.set("n", "<leader>=", "gg=G")
+vim.keymap.set("n", "<leader>=", "mmgg=G'm")
 -- exit insert quicker
 vim.keymap.set("i", "<C-c>", "<Esc>")
 -- delete buffer shortcut
@@ -98,7 +98,6 @@ vim.keymap.set("n", "<leader>o", ":lua require\"oil\".toggle_float()<CR>")
 -- shortcut for zz and zq to all files
 vim.keymap.set("n", "ZZ", ":wqa<CR>")
 vim.keymap.set("n", "ZQ", ":qa!<CR>")
-
 
 
 
