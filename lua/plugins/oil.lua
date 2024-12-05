@@ -1,25 +1,31 @@
 
 return {
   'stevearc/oil.nvim',
-    opts = {},
+  opts = {},
   dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
   config = function ()
-    require("oil").setup({
+    local oil = require("oil")
+    oil.setup({
       default_file_explorer = true,
+      skip_confirm_for_simple_edits = true,
+      prompt_save_on_select_new_entry = true,
+      watch_for_changes = true,
       columns = {
         "icon",
         "size"
       },
       keymaps = {
-        ["<Tab>"] = "actions.select",
-        ["<S-Tab>"] = "actions.parent",
+        ["<S-l>"] = "actions.select",
+        ["<S-h>"] = "actions.parent",
+        ["gh"] = { "actions.toggle_hidden", mode = "n" },
       },
+      use_default_keymaps = false,
       view_options = {
-        show_hidden = false
+        show_hidden = true
       },
-      preview_wim = {
-        update_on_cursor_moved = true
-      }
+      float = {
+        padding = 10,
+      },
     })
   end
 }
