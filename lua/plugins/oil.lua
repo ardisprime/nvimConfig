@@ -7,7 +7,7 @@ return {
     local oil = require("oil")
     oil.setup({
       default_file_explorer = true,
-      -- skip_confirm_for_simple_edits = true,
+      skip_confirm_for_simple_edits = true,
       prompt_save_on_select_new_entry = true,
       watch_for_changes = true,
       columns = {
