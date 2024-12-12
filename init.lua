@@ -65,7 +65,7 @@ vim.cmd("nmap <leader>wl <C-w>l")
 -- keymaps for floaterm
 vim.keymap.set("n", "<leader>t", ":FloatermNew --width=0.8 --height=0.8<CR>")
 -- set color scheme
-vim.cmd.colorscheme("nightfly")
+vim.cmd.colorscheme("everforest")
 -- fix indent
 vim.keymap.set("n", "<leader>=", "mmgg=G'm")
 -- exit insert quicker
